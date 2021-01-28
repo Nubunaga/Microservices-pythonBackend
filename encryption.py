@@ -5,7 +5,7 @@ class Encryption(object):
     q = int(os.getenv("p"))
     p = int(os.getenv("q"))
     n = q*p
-    d = (p-1)*(q-1)
+    d = pow(e,-1,(p-1)*(q-1))
 
     def __encrypt(self,message):
         hex = to_hex(message)

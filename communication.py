@@ -1,4 +1,5 @@
 from encryption import Encryption
+from decryption import Decryption
 import falcon, json
 
 class CalculationRSA(object):
@@ -19,6 +20,9 @@ api = falcon.API()
 
 calculation_endpoint = CalculationRSA()
 encryption_endpoint = Encryption()
+decryption_endpoint = Decryption()
 api.add_route('/calculations',calculation_endpoint)
 api.add_route('/encryptMedia',encryption_endpoint)
+api.add_route('/decryptMedia',decryption_endpoint)
+
 
