@@ -1,9 +1,9 @@
 import json, falcon, os
 
 class Encryption(object):
-    e = os.getenv("e")
-    q = os.getenv("q")
-    p = os.getenv("p")
+    e = int(os.getenv("e"))
+    q = int(os.getenv("p"))
+    p = int(os.getenv("q"))
     n = q*p
     d = (p-1)*(q-1)
     def __to_hex(self,message):
@@ -21,6 +21,5 @@ class Encryption(object):
     def on_post(self,req,resp):
         data = json.loads(req.stream.read())
         message_to_encrypt = data.get("message")
-        print(message_to_encrypt)
         resp.status = falcon.HTTP_201
         resp.body = json.dumps({"hex":self.__encrypt(message_to_encrypt)})
