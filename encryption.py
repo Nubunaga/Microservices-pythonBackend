@@ -1,21 +1,15 @@
 import json, falcon, os
-
+from helper import to_decimal,to_hex
 class Encryption(object):
     e = int(os.getenv("e"))
     q = int(os.getenv("p"))
     p = int(os.getenv("q"))
     n = q*p
     d = (p-1)*(q-1)
-    def __to_hex(self,message):
-        return "".join("{:02x}".format(c)for c in message.encode())
-
-    def __to_decimal(self,hex_message):
-        return (int(hex_message,16))
-
 
     def __encrypt(self,message):
-        hex = self.__to_hex(message)
-        decimal = self.__to_decimal(hex)
+        hex = to_hex(message)
+        decimal = to_decimal(hex)
         return pow(decimal,self.e,self.n)
 
     def on_post(self,req,resp):
