@@ -1,5 +1,6 @@
 from encryption import Encryption
 from decryption import Decryption
+from user_communications import UserCommunications
 import falcon, json
 
 class CalculationRSA(object):
@@ -24,5 +25,7 @@ decryption_endpoint = Decryption()
 api.add_route('/calculations',calculation_endpoint)
 api.add_route('/encryptMedia',encryption_endpoint)
 api.add_route('/decryptMedia',decryption_endpoint)
+api.add_route('/userOnline', UserCommunications())
+
 
 
