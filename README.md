@@ -7,7 +7,7 @@ This program is to handle:
 * ~Encryption~
 * ~Decryption~
 * RSA calculations
-
+* ~User Com~
 ## Dependencies
 
 * Falcon   `pip install falcon gunicorn`
